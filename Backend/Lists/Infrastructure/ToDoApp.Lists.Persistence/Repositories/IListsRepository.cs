@@ -10,7 +10,7 @@ namespace ToDoApp.Lists.Persistence.Repositories
     /// <summary>
     /// Interface for the Lists repository
     /// </summary>
-    public interface IListsRepository
+    public interface IListsRepository : IRepository
     {
         /// <summary>
         /// Save or update a ToDoItem entry
@@ -20,8 +20,15 @@ namespace ToDoApp.Lists.Persistence.Repositories
         /// <summary>
         /// Delete the Id of the ToDoItem with the given ID
         /// </summary>
-        /// <param name="toDoItemId"></param>
-        void Delete(string toDoItemId);
+        /// <param name="toDoItem"></param>
+        void Delete(ToDoItem toDoItem);
+
+        /// <summary>
+        /// Get the ToDoItem by its ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        ToDoItem GetDoItemById(string id);
 
         /// <summary>
         /// Get all of the ToDoItems associated with the given email
