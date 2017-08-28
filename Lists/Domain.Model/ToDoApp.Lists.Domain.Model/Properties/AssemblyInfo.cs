@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ToDo.Lists.Domain.Model")]
+[assembly: AssemblyTitle("ToDoApp.Lists.Domain.Model")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ToDo.Lists.Domain.Model")]
+[assembly: AssemblyProduct("ToDoApp.Lists.Domain.Model")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c381bf94-59ec-466c-b266-ab7e765da663")]
+[assembly: Guid("d8b7cde5-f607-4aa7-b918-229f44cc5796")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDo.Lists.Domain.Model
+namespace ToDoApp.Lists.Persistence
 {
     public class Class1
     {

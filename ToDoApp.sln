@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lists", "Lists", "{5A303E3D-E736-4852-8DF4-218FBAC72D25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{3EBEC444-796D-4611-AAD6-901C4AFAECB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain.Model", "Domain.Model", "{1792E5FE-F125-4C15-B8A4-7CEF1F4C18F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Lists.Domain.Model", "Lists\Domain.Model\ToDoApp.Lists.Domain.Model\ToDoApp.Lists.Domain.Model.csproj", "{D8B7CDE5-F607-4AA7-B918-229F44CC5796}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{961B3917-2795-40B4-8A95-173D68168852}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Lists.Persistence", "Lists\Infrastructure\ToDoApp.Lists.Persistence\ToDoApp.Lists.Persistence.csproj", "{8A570058-5748-474B-97D7-AC64E3FAF006}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8B7CDE5-F607-4AA7-B918-229F44CC5796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B7CDE5-F607-4AA7-B918-229F44CC5796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B7CDE5-F607-4AA7-B918-229F44CC5796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B7CDE5-F607-4AA7-B918-229F44CC5796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A570058-5748-474B-97D7-AC64E3FAF006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A570058-5748-474B-97D7-AC64E3FAF006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A570058-5748-474B-97D7-AC64E3FAF006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A570058-5748-474B-97D7-AC64E3FAF006}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1792E5FE-F125-4C15-B8A4-7CEF1F4C18F1} = {5A303E3D-E736-4852-8DF4-218FBAC72D25}
+		{D8B7CDE5-F607-4AA7-B918-229F44CC5796} = {1792E5FE-F125-4C15-B8A4-7CEF1F4C18F1}
+		{961B3917-2795-40B4-8A95-173D68168852} = {5A303E3D-E736-4852-8DF4-218FBAC72D25}
+		{8A570058-5748-474B-97D7-AC64E3FAF006} = {961B3917-2795-40B4-8A95-173D68168852}
+	EndGlobalSection
+EndGlobal
