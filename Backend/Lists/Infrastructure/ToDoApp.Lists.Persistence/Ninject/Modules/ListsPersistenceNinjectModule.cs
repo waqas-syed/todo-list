@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ninject.Modules;
 using Ninject.Web.Common;
-using ToDoApp.Lists.Persistence.PersistencePipeline;
+using ToDoApp.Lists.Persistence.DatabasePipeline;
 using ToDoApp.Lists.Persistence.Repositories;
 
 namespace ToDoApp.Lists.Persistence.Ninject.Modules

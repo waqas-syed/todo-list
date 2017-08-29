@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using ToDoApp.Lists.Domain.Model.ToDoAggregate;
 
-namespace ToDoApp.Lists.Persistence.PersistencePipeline
+namespace ToDoApp.Lists.Persistence.DatabasePipeline
 {
     /// <summary>
     /// DbContext for the Lists Bounded Context

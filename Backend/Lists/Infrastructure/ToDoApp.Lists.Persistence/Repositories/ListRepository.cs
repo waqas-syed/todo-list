@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Data.Common;
 using System.Linq;
 using ToDoApp.Lists.Domain.Model.ToDoAggregate;
-using ToDoApp.Lists.Persistence.PersistencePipeline;
+using ToDoApp.Lists.Persistence.DatabasePipeline;
 
 namespace ToDoApp.Lists.Persistence.Repositories
 {
