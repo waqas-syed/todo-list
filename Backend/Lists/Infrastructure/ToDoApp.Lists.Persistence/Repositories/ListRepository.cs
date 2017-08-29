@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Common;
 using System.Linq;
 using ToDoApp.Lists.Domain.Model.ToDoAggregate;
 using ToDoApp.Lists.Persistence.DatabasePipeline;
@@ -68,22 +66,7 @@ namespace ToDoApp.Lists.Persistence.Repositories
         {
             return _listsContext.ToDoItems.Where(x => x.OwnerEmail == email).ToList();
         }
-
-        /// <summary>
-        /// Creates the DbConnection required for the AuthContext
-        /// </summary>
-        /// <returns></returns>
-        public DbConnection CreateDbConnection()
-        {
-            var connection = DbProviderFactories.GetFactory("MySql.Data.MySqlClient").CreateConnection();
-            if (connection == null)
-            {
-                throw new NullReferenceException("Could not create DB connection for Entity Framework");
-            }
-            connection.ConnectionString = ConfigurationManager.AppSettings.Get("DefaultConnection");
-            return connection;
-        }
-
+        
         /// <summary>
         /// Disposes the resources
         /// </summary>

@@ -136,7 +136,7 @@ namespace ToDoApp.Lists.Ports.Resources
                     return Ok(_listsApplicationService.GetToDoItemsByEmail(email));
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return InternalServerError();
             }

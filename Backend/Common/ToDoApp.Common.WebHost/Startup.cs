@@ -43,7 +43,7 @@ namespace ToDoApp.Common.WebHost
         /// Configures Identity, OAuth, Cors, Web Api and dependency resolution
         /// </summary>
         /// <param name="app"></param>
-        public void Configure(IAppBuilder app)
+        public void Configuration(IAppBuilder app)
         {
             app.CreatePerOwinContext(() => new AppBuilderProvider(app));
 

@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ToDoItemConfiguration.cs" />
     <Compile Include="Ninject\Modules\ListsPersistenceNinjectModule.cs" />
     <Compile Include="DatabasePipeline\ListsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +68,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\ToDoApp.Common\ToDoApp.Common.csproj">
+      <Project>{653458d9-61ab-4f46-875a-fd1ee1f7415a}</Project>
+      <Name>ToDoApp.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain.Model\ToDoApp.Lists.Domain.Model\ToDoApp.Lists.Domain.Model.csproj">
       <Project>{d8b7cde5-f607-4aa7-b918-229f44cc5796}</Project>
       <Name>ToDoApp.Lists.Domain.Model</Name>

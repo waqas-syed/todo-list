@@ -12,5 +12,6 @@ namespace ToDoApp.Common
     public class Constants
     {
         public const string FrontendUrl = "https://localhost";
+        public const string DatabaseConnectionString = "MySql";
     }
 }

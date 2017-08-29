@@ -7,7 +7,7 @@ namespace ToDoApp.Lists.Domain.Model.ToDoAggregate
     /// </summary>
     public class ToDoItem
     {
-        private readonly string _id = Guid.NewGuid().ToString();
+        private string _id = Guid.NewGuid().ToString();
         private string _ownerEmail;
         private string _description;
 

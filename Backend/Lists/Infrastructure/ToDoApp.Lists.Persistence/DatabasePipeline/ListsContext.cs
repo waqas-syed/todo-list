@@ -1,6 +1,8 @@
 ﻿using System.Data.Common;
 using System.Data.Entity;
+using ToDoApp.Common;
 using ToDoApp.Lists.Domain.Model.ToDoAggregate;
+using ToDoApp.Lists.Persistence.Configuration;
 
 namespace ToDoApp.Lists.Persistence.DatabasePipeline
 {
@@ -12,13 +14,17 @@ namespace ToDoApp.Lists.Persistence.DatabasePipeline
         /// <summary>
         /// Default Constructor
         /// </summary>
-        /// <param name="connection"></param>
-        /// <param name="ownConnection"></param>
-        public ListsContext(DbConnection connection, bool ownConnection) : base(connection, ownConnection)
+        public ListsContext() : base(Constants.DatabaseConnectionString)
         {
             
         }
 
         public DbSet<ToDoItem> ToDoItems { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new ToDoItemConfiguration());
+        }
     }
 }
