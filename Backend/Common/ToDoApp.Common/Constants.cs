@@ -11,5 +11,6 @@ namespace ToDoApp.Common
     /// </summary>
     public class Constants
     {
+        public const string FrontendUrl = "https://localhost";
     }
 }

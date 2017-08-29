@@ -41,6 +41,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ports", "Ports", "{1814F184
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Identity.Ports", "Backend\Identity\Ports\ToDoApp.Identity.Ports\ToDoApp.Identity.Ports.csproj", "{773B6B5A-94A3-4EE9-9712-2E66CCFA377D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Common.WebHost", "Backend\Common\ToDoApp.Common.WebHost\ToDoApp.Common.WebHost.csproj", "{88EB841E-4D2F-4B3D-A48F-D61E4E717F92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{773B6B5A-94A3-4EE9-9712-2E66CCFA377D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{773B6B5A-94A3-4EE9-9712-2E66CCFA377D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{773B6B5A-94A3-4EE9-9712-2E66CCFA377D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88EB841E-4D2F-4B3D-A48F-D61E4E717F92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88EB841E-4D2F-4B3D-A48F-D61E4E717F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88EB841E-4D2F-4B3D-A48F-D61E4E717F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88EB841E-4D2F-4B3D-A48F-D61E4E717F92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,5 +108,6 @@ Global
 		{653458D9-61AB-4F46-875A-FD1EE1F7415A} = {9277C28C-8154-44A5-8B6B-96316C7ECBA6}
 		{1814F184-E268-41C7-A712-304B6A202A9C} = {3EBEC444-796D-4611-AAD6-901C4AFAECB3}
 		{773B6B5A-94A3-4EE9-9712-2E66CCFA377D} = {1814F184-E268-41C7-A712-304B6A202A9C}
+		{88EB841E-4D2F-4B3D-A48F-D61E4E717F92} = {9277C28C-8154-44A5-8B6B-96316C7ECBA6}
 	EndGlobalSection
 EndGlobal

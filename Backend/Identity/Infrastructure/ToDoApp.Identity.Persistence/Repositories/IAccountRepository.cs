@@ -33,6 +33,14 @@ namespace ToDoApp.Identity.Persistence.Repositories
         IdentityUser GetUserByEmail(string email);
 
         /// <summary>
+        /// Get user by email and Password
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        IdentityUser GetUserByPassword(string email, string password);
+
+        /// <summary>
         /// Get the token which this user must submit to activate their account
         /// </summary>
         /// <param name="userId"></param>
