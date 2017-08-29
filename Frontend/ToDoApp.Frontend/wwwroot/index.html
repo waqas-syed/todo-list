@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+</head>
+<body>
+
+<div ng-app="app" ng-controller="indexController">
+    <div class="page-wrapper">
+        <div class="header-wrapper">
+            <div class="header">
+                <div class="header-inner">
+                    <div class="container">
+                        <div class="header-topbar ng-cloak" ng-if="!isAuthenticated()">
+                            <div class="header-topbar-left">
+                                <ul class="nav nav-pills nav-topbar">
+                                    <li class="nav-item"><a ui-sref="pre-login" class="nav-link"><strong>LOGIN</strong></a></li>
+                                    <li class="nav-item"><a ui-sref="pre-signup" class="nav-link"><strong>SIGNUP</strong></a></li>
+                                </ul><!-- /.nav -->
+                            </div><!-- /.header-topbar-left -->
+                        </div><!-- /.header-topbar -->
+                        <div class="header-top-authenticated ng-cloak" ng-show="isAuthenticated()">
+                            <div class="nav-primary-wrapper collapse navbar-toggleable-sm header-topbar-right">
+                                <ul class="nav nav-pills nav-primary ng-cloak">
+                                    <li class="nav-item nav-item-parent">
+                                        <a href="index.html" class="nav-link active" ng-bind="authentication.fullName">
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li ng-click="logOut()"><a href="">Log Out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="header-top">
+                            <div class="header-top-inner">
+                                <a class="header-logo" ui-sref="home">
+                                    <img src="images/light_green.png" style="height: 35px; width: 242px;">
+                                </a><!-- /.header-logo -->
+                                <div class="header-separator">
+                                </div><!-- /.header-separator -->
+                            </div><!-- /.header-top-inner -->
+                            <div class="header-top-right">
+                                <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
+                                    <ul class="nav nav-pills nav-primary">
+                                        <li class="nav-item">
+                                            <a href="index.html" class="nav-link ">
+                                                Search Properties
+                                            </a>
+                                        </li>
+                                        <li class="nav-item ng-cloak" ng-if="isAuthenticated()">
+                                            <a ui-sref="search-results({email:getCurrentUserEmail()})" class="nav-link ">
+                                                My Properties
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a ui-sref="contact" class="nav-link ">
+                                                Contact Us
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" ng-if="!isAuthenticated()">
+                                            <a ui-sref="about-us" class="nav-link ">
+                                                About Us
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a ui-sref="blog-posts" class="nav-link ">
+                                                Blog
+                                            </a>
+                                        </li>
+                                        <li class="nav-item right">
+                                            <a class="btn btn-primary" style="margin: 4px 0 0 7px" ui-sref="upload-house">
+                                                <i class="fa fa-upload"></i> <span>Post Property</span>
+                                            </a><!-- /.header-action -->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!-- /.header-top -->
+                    </div><!-- /.container -->
+                </div><!-- /.header-inner -->
+            </div><!-- /.header -->
+        </div><!-- /.header-wrapper-->
+
+        <div id="ui-view" class="page-wrapper" ui-view></div>
+
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-top">
+                        <div class="footer-top-left">
+                            <p>
+                                Help us grow. Email your suggestions and feedback to support@zarqoon.com
+                            </p>
+                        </div><!-- /.footer-top-left -->
+
+                        <div class="footer-top-right">
+                        </div><!-- /.footer-top-right -->
+                    </div><!-- /.footer-top -->
+
+                    <div class="footer-bottom">
+                        <div class="footer-left">
+                            
+                        </div><!-- /.footer-left -->
+
+                        <div class="footer-right">
+                            <ul class="nav nav-pills">
+                                
+                            </ul>
+                        </div><!-- /.footer-right -->
+                    </div><!-- /.footer-bottom -->
+                </div><!-- /.footer-inner -->
+            </div><!-- /.container -->
+        </div><!-- /.footer-wrapper -->
+    </div>
+</div>
+
+<script src="lib/angular.js"></script>
+<script src="lib/angular-ui-router.js"></script>
+<script src="lib/angular-local-storage.js"></script>
+
+</body>
+</html> 
