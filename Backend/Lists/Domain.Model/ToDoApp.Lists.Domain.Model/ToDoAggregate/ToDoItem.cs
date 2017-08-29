@@ -12,6 +12,14 @@ namespace ToDoApp.Lists.Domain.Model.ToDoAggregate
         private string _description;
 
         /// <summary>
+        /// Parameterless constructor, required by ORMs
+        /// </summary>
+        public ToDoItem()
+        {
+            
+        }
+
+        /// <summary>
         /// Initialize the ToDoItem with given parameters
         /// </summary>
         /// <param name="ownerEmail"></param>
@@ -56,6 +64,7 @@ namespace ToDoApp.Lists.Domain.Model.ToDoAggregate
         public string Id
         {
             get { return _id; }
+            private set { _id = value; }
         }
 
         /// <summary>

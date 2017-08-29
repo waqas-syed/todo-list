@@ -15,7 +15,7 @@ namespace ToDoApp.Identity.Persistence.DatabasePipeline
     {
         public AuthContext() : base(Constants.DatabaseConnectionString)
         {
-            
+            Database.SetInitializer(new MySqlDatabaseInitializer());
         }
     }
 }

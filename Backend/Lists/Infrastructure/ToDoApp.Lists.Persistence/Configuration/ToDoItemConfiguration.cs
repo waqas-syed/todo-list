@@ -12,8 +12,9 @@ namespace ToDoApp.Lists.Persistence.Configuration
         public ToDoItemConfiguration()
         {
             ToTable("todoitem");
-            HasKey(x => x.Id);
             Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            HasKey(x => x.Id);
+            
             Property(x => x.Description).IsRequired().HasMaxLength(600);
             Property(x => x.OwnerEmail).IsRequired().HasMaxLength(100);
         }

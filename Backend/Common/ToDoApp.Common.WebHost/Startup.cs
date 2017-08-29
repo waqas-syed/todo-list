@@ -14,6 +14,7 @@ using Ninject.Web.WebApi.OwinHost;
 using Owin;
 using ToDoApp.Common.WebHost.Providers;
 using ToDoApp.Identity.Application.Ninject.Modules;
+using ToDoApp.Identity.Persistence.DatabasePipeline;
 using ToDoApp.Identity.Persistence.Ninject.Modules;
 using ToDoApp.Identity.Ports.Ninject.Modules;
 using ToDoApp.Lists.Application.Ninject.Modules;

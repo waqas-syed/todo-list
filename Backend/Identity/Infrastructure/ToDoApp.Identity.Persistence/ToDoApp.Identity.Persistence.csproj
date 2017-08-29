@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabasePipeline\AuthContext.cs" />
+    <Compile Include="DatabasePipeline\MySqlDatabaseInitializer.cs" />
     <Compile Include="Ninject\Modules\IdentityPersistenceNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />

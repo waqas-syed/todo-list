@@ -16,7 +16,6 @@ namespace ToDoApp.Lists.Persistence.DatabasePipeline
         /// </summary>
         public ListsContext() : base(Constants.DatabaseConnectionString)
         {
-            
         }
 
         public DbSet<ToDoItem> ToDoItems { get; set; }
