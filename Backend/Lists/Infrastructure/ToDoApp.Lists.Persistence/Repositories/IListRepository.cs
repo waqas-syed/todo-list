@@ -10,7 +10,7 @@ namespace ToDoApp.Lists.Persistence.Repositories
     /// <summary>
     /// Interface for the Lists repository
     /// </summary>
-    public interface IListsRepository : IRepository
+    public interface IListRepository : IRepository
     {
         /// <summary>
         /// Save or update a ToDoItem entry

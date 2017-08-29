@@ -11,7 +11,7 @@ namespace ToDoApp.Lists.Persistence.Repositories
     /// <summary>
     /// Repository for performing operations on Lists
     /// </summary>
-    public class ListRepository : IListsRepository, IDisposable
+    public class ListRepository : IListRepository, IDisposable
     {
         private ListsContext _listsContext;
 
