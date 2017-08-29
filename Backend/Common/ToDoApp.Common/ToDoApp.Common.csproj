@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B5F29DDA-A5F8-4564-B4A0-7465DBE9C639}</ProjectGuid>
+    <ProjectGuid>{653458D9-61AB-4F46-875A-FD1EE1F7415A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ToDoApp.Lists.Application</RootNamespace>
-    <AssemblyName>ToDoApp.Lists.Application</AssemblyName>
+    <RootNamespace>ToDoApp.Common</RootNamespace>
+    <AssemblyName>ToDoApp.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,26 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Lists\Commands\CreateNewToDoCommand.cs" />
-    <Compile Include="Lists\Commands\UpdateToDoItemCommand.cs" />
-    <Compile Include="Lists\IListApplicationService.cs" />
-    <Compile Include="Lists\ListApplicationService.cs" />
-    <Compile Include="Lists\Representations\ToDoItemRepresentation.cs" />
-    <Compile Include="Ninject\Modules\ListsApplicationNinjectModule.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Domain.Model\ToDoApp.Lists.Domain.Model\ToDoApp.Lists.Domain.Model.csproj">
-      <Project>{d8b7cde5-f607-4aa7-b918-229f44cc5796}</Project>
-      <Name>ToDoApp.Lists.Domain.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\ToDoApp.Lists.Persistence\ToDoApp.Lists.Persistence.csproj">
-      <Project>{8a570058-5748-474b-97d7-ac64e3faf006}</Project>
-      <Name>ToDoApp.Lists.Persistence</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

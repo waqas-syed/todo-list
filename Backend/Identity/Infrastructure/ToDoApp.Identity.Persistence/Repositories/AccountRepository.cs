@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -27,12 +23,10 @@ namespace ToDoApp.Identity.Persistence.Repositories
         /// <summary>
         /// Register a new user
         /// </summary>
-        /// <param name="name"></param>
         /// <param name="email"></param>
         /// <param name="password"></param>
-        /// <param name="isExternalUser"></param>
         /// <returns></returns>
-        public IdentityResult RegisterUser(string name, string email, string password, bool isExternalUser = false)
+        public IdentityResult RegisterUser(string email, string password)
         {
             // Assign email to the uername property, as we will use email in place of username
             IdentityUser user = new IdentityUser
@@ -41,16 +35,45 @@ namespace ToDoApp.Identity.Persistence.Repositories
                 Email = email
             };
             IdentityResult result;
-            if (!isExternalUser)
-            {
-                result = _userManager.Create(user, password);
-            }
-            else
-            {
-                result = _userManager.Create(user);
-            }
+            result = _userManager.Create(user, password);
 
             return result;
+        }
+
+        /// <summary>
+        /// Confirm the given email as verified
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public bool ConfirmEmail(string userId, string token)
+        {
+            var identityResult = _userManager.ConfirmEmail(userId, token);
+            if (identityResult.Succeeded)
+            {
+                return true;
+            }
+            throw new ArgumentException($"Could not confirm user email. UserId: {userId}");
+        }
+
+        /// <summary>
+        /// Get a user by the email with which they registered
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public IdentityUser GetUserByEmail(string email)
+        {
+            return _userManager.FindByEmail(email);
+        }
+
+        /// <summary>
+        /// Get the token which this user must submit to activate their account
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public string GetEmailActivationToken(string userId)
+        {
+            return _userManager.GenerateEmailConfirmationToken(userId);
         }
     }
 }
