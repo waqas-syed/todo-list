@@ -11,6 +11,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="wwwroot\views\login.html" />
     <Content Include="wwwroot\views\signup.html" />
+    <Content Include="wwwroot\views\todo-list.html" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.0.2" />

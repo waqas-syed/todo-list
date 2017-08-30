@@ -39,6 +39,7 @@ namespace ToDoApp.Identity.Persistence.Repositories
             // Assign email to the uername property, as we will use email in place of username
             CustomIdentityUser user = new CustomIdentityUser
             {
+                FullName = fullName,
                 UserName = email,
                 Email = email
             };

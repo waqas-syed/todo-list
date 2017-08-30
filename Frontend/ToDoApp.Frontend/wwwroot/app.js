@@ -42,6 +42,12 @@
                             controller: "signupController",
                             templateUrl: "/views/signup.html",
                             permissions: { hideFromLoggedInUser: true}
+                    })
+                    .state("todo-list",
+                        {
+                            url: "/todo-list?email",
+                            controller: "todoListController",
+                            templateUrl: "/views/todo-list.html"
                         });
             }
         ]

@@ -1,12 +1,12 @@
 ﻿'use strict';
 
 var rentApp = angular.module('app');
-rentApp.controller('loginController', ['$scope', '$location', 'authService', function ($scope, $location, authService) {
+rentApp.controller('loginController', ['$scope', '$state', 'authService', function ($scope, $state, authService) {
     
     $scope.message = "";
     $scope.login = function () {
         authService.login($scope.loginData).then(function (response) {
-                $location.path('/home');
+                $state.go('todo-list', {email : $scope.loginData.userName});
             },
             function (err) {
                 console.log(err);
