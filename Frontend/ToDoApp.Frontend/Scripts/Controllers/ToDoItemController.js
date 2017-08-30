@@ -17,6 +17,9 @@ app.controller('todoItemController', ['$scope', '$state', '$stateParams', 'todoL
         }
     
         $scope.submitNewToDo = function () {
+            if ($scope.dt === null || $scope.dt === undefined) {
+                $scope.dt = new Date();
+            }
             var toDo = {
                 Description: $scope.description,
                 DueDate: new Date($scope.dt.getFullYear(), $scope.dt.getMonth(), $scope.dt.getDate() + 1),

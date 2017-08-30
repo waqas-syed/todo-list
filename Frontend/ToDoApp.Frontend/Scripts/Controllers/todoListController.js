@@ -21,8 +21,8 @@ app.controller('todoListController', ['$scope', '$state', '$stateParams', 'todoL
         };
 
         $scope.deleteToDo = function (id) {
-            todoListService.deleteToDo({ id: id }).success(function (response) {
-                $scope.toDoList = response;
+            todoListService.deleteToDo(id).success(function (response) {
+                getAllToDos();
             }).error(function (error) {
                 console.log(error);
             });

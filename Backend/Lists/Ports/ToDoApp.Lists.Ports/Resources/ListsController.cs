@@ -92,27 +92,19 @@ namespace ToDoApp.Lists.Ports.Resources
         /// <summary>
         /// Save a new ToDoItem in the ToDoList of the mentioned user
         /// </summary>
-        /// <param name="toDoItem"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        [Route("todoitem")]
-        [HttpPut]
+        [Route("todoitem/{id}")]
+        [HttpDelete]
         [Authorize]
-        [AcceptVerbs(new string[] { "OPTIONS", "PUT" })]
-        public IHttpActionResult Delete([FromBody] Object toDoItem)
+        public IHttpActionResult Delete(string id)
         {
             try
             {
-                if (toDoItem != null)
+                if (!string.IsNullOrWhiteSpace(id))
                 {
-                    var jsonString = toDoItem.ToString();
-                    UpdateToDoItemCommand toDoCommand = null;
-                    // First try to convert it to CreateHouseCommand
-                    toDoCommand = JsonConvert.DeserializeObject<UpdateToDoItemCommand>(jsonString);
-                    if (toDoCommand != null)
-                    {
-                        _listsApplicationService.UpdateToDoItem(toDoCommand);
-                        return Ok();
-                    }
+                    _listsApplicationService.DeleteToDoItem(id);
+                    return Ok();
                 }
             }
             catch (Exception)
