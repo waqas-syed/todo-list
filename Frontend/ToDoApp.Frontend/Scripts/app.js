@@ -48,6 +48,12 @@
                             url: "/todo-list?email",
                             controller: "todoListController",
                             templateUrl: "/views/todo-list.html"
+                    })
+                    .state("new-todo",
+                        {
+                            url: "/new-todo",
+                            controller: "todoListController",
+                            templateUrl: "/views/new-todo.html"
                         });
             }
         ]

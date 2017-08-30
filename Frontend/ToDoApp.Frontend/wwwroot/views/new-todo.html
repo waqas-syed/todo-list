@@ -1,0 +1,23 @@
+﻿<h3 class="h1-uppercase-formatted">TODO</h3>
+<form name="form" ng-submit="submitNewToDo()" role="form">
+    <div class="form-group">
+        <label for="description">Description</label>
+        <i class="fa fa-key"></i>
+        <input type="text" name="description" id="description" class="form-control" ng-model="todo.Description" required />
+    </div>
+    <div class="form-group">
+        <label for="dueDate">Due Date</label>
+        <i class="fa fa-lock"></i>
+        <input type="password" name="password" id="password" class="form-control" ng-model="todo.DueDate" required />
+    </div>
+    <div class="form-group">
+        <label for="priority">Priority</label>
+        <select class="form-control" ng-model="todo.Priority"
+                ng-options="priority as priority for priority in priorities" required>
+            <option value="" disabled selected style="display: none;">Priority</option>
+        </select>
+    </div>
+    <div class="form-actions">
+        <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-danger">Submit</button>
+    </div>
+</form>

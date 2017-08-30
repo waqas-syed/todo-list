@@ -10,6 +10,7 @@
     <Content Include="wwwroot\index.html" />
     <Content Include="scripts\app.js" />
     <Content Include="wwwroot\views\login.html" />
+    <Content Include="wwwroot\views\new-todo.html" />
     <Content Include="wwwroot\views\signup.html" />
     <Content Include="wwwroot\views\todo-list.html" />
   </ItemGroup>
