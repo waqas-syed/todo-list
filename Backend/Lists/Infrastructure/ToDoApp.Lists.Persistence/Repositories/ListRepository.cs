@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using ToDoApp.Lists.Domain.Model.ToDoAggregate;
 using ToDoApp.Lists.Persistence.DatabasePipeline;
@@ -25,7 +26,7 @@ namespace ToDoApp.Lists.Persistence.Repositories
         /// Saves the given
         /// </summary>
         /// <param name="toDoItem"></param>
-        public void SaveorUpdate(ToDoItem toDoItem)
+        public void Save(ToDoItem toDoItem)
         {
             try
             {
@@ -36,6 +37,12 @@ namespace ToDoApp.Lists.Persistence.Repositories
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        public void Update(ToDoItem toDoItem)
+        {
+            _listsContext.ToDoItems.Attach(toDoItem);
+            _listsContext.Entry(toDoItem).State = EntityState.Modified;
         }
 
         /// <summary>

@@ -13,9 +13,14 @@ namespace ToDoApp.Lists.Persistence.Repositories
     public interface IListRepository : IRepository
     {
         /// <summary>
-        /// Save or update a ToDoItem entry
+        /// Save a ToDoItem entry
         /// </summary>
-        void SaveorUpdate(ToDoItem toDoItem);
+        void Save(ToDoItem toDoItem);
+
+        /// <summary>
+        /// Update a ToDoItem entry
+        /// </summary>
+        void Update(ToDoItem toDoItem);
 
         /// <summary>
         /// Delete the Id of the ToDoItem with the given ID

@@ -82,7 +82,7 @@ namespace ToDoApp.Lists.Ports.Resources
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return InternalServerError();
             }
@@ -107,7 +107,7 @@ namespace ToDoApp.Lists.Ports.Resources
                     return Ok();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return InternalServerError();
             }

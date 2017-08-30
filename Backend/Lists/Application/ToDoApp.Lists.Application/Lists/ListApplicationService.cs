@@ -31,7 +31,7 @@ namespace ToDoApp.Lists.Application.Lists
                 priority);
 
             // Save this instance to the database
-            _listsRepository.SaveorUpdate(toDoItem);
+            _listsRepository.Save(toDoItem);
             _listsRepository.Commit();
         }
 
@@ -51,11 +51,12 @@ namespace ToDoApp.Lists.Application.Lists
             {
                 throw new NullReferenceException("Could not find the ToDoItem by the given Id");
             }
+            
             // Now update the values of the domain object
             toDoItem.Update(updateCommand.Description, updateCommand.DueDate, priority, updateCommand.IsCompleted);
 
             // Update the instance in the database
-            _listsRepository.SaveorUpdate(toDoItem);
+            _listsRepository.Update(toDoItem);
             // Commit the changes
             _listsRepository.Commit();
         }
