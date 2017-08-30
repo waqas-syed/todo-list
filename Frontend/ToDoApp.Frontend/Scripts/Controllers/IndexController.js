@@ -25,7 +25,7 @@ rentApp.controller('indexController', ['$scope', '$location', 'authService', '$s
 
     $scope.logOut = function () {
         authService.logOut();
-        $state.go('home');
+        $state.go('login');
     }
 
     $scope.authentication = authService.authentication;
