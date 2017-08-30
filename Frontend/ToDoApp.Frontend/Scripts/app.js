@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var rentApp = angular.module('app', ['ui.router', 'LocalStorageModule']);
+    var rentApp = angular.module('app', ['ui.router', 'LocalStorageModule', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locationProvider",
             function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -47,13 +47,15 @@
                         {
                             url: "/todo-list?email",
                             controller: "todoListController",
-                            templateUrl: "/views/todo-list.html"
+                            templateUrl: "/views/todo-list.html",
+                            permissions: { redirectForNonLoggedInUser: true }
                     })
                     .state("new-todo",
                         {
-                            url: "/new-todo",
-                            controller: "todoListController",
-                            templateUrl: "/views/new-todo.html"
+                            url: "/new-todo?email",
+                            controller: "todoItemController",
+                            templateUrl: "/views/new-todo.html",
+                            permissions: { redirectForNonLoggedInUser: true }
                         });
             }
         ]
@@ -73,7 +75,14 @@
                         var hideFromLoggedInUser = next.permissions.hideFromLoggedInUser;
                         if (hideFromLoggedInUser !== undefined && hideFromLoggedInUser != null && hideFromLoggedInUser) {
                             event.preventDefault();
-                            $state.go('home');
+                            $state.go('todo-list');
+                        }
+                    }
+                    if (!authService.authentication.isAuth) {
+                        var redirectForNonLoggedInUser = next.permissions.redirectForNonLoggedInUser;
+                        if (redirectForNonLoggedInUser) {
+                            event.preventDefault();
+                            $state.go('login');
                         }
                     }
                 }

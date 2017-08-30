@@ -10,6 +10,15 @@ app.factory('todoListService', ['$http', '$q', 'globalService', function ($http,
                 .error(function (error) {
                     return error;
                 });
+        },
+        submitNewToDo: function(todo) {
+            return $http.post(globalService.serverUrl + 'todoitem', todo)
+                .success(function (response) {
+                    return response;
+                })
+                .error(function (error) {
+                    return error;
+                });
         }
     };
 }]);

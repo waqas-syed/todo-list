@@ -1,18 +1,20 @@
 ﻿<h3 class="h1-uppercase-formatted">TODO</h3>
 <form name="form" ng-submit="submitNewToDo()" role="form">
     <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description">DESCRIPTION</label>
         <i class="fa fa-key"></i>
-        <input type="text" name="description" id="description" class="form-control" ng-model="todo.Description" required />
+        <input type="text" name="description" id="description" class="form-control" ng-model="description" required />
     </div>
     <div class="form-group">
-        <label for="dueDate">Due Date</label>
+        <label for="dueDate">DUE DATE</label>
         <i class="fa fa-lock"></i>
-        <input type="password" name="password" id="password" class="form-control" ng-model="todo.DueDate" required />
+        <div style="display:inline-block; min-height:290px;">
+            <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+        </div>
     </div>
     <div class="form-group">
-        <label for="priority">Priority</label>
-        <select class="form-control" ng-model="todo.Priority"
+        <label for="priority">PRIORITY</label>
+        <select class="form-control" ng-model="priority"
                 ng-options="priority as priority for priority in priorities" required>
             <option value="" disabled selected style="display: none;">Priority</option>
         </select>

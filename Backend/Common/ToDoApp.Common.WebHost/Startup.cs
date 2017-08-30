@@ -67,10 +67,9 @@ namespace ToDoApp.Common.WebHost
                 }
             });
             
-            app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(configuration);
             ConfigureOAuth(app);
             WebApiConfig.Register(configuration);
-            
+            app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(configuration);
         }
 
         public static IKernel Kernel { get; private set; }
@@ -78,13 +77,17 @@ namespace ToDoApp.Common.WebHost
         private StandardKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            kernel.Load<ListsPersistenceNinjectModule>();
-            kernel.Load<ListsApplicationNinjectModule>();
-            kernel.Load<ListsPortsNinjectModule>();
+
             kernel.Load<IdentityPersistenceNinjectModule>();
             kernel.Load<IdentityApplicationNinjectModule>();
             kernel.Load<IdentityPortsNinjectModule>();
+
+            kernel.Load<ListsPersistenceNinjectModule>();
+            kernel.Load<ListsApplicationNinjectModule>();
+            kernel.Load<ListsPortsNinjectModule>();
+            
             Kernel = kernel;
+
             return kernel;
         }
 
