@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Web.Http;
 using Newtonsoft.Json;
 using ToDoApp.Lists.Application.Lists;
@@ -48,7 +49,7 @@ namespace ToDoApp.Lists.Ports.Resources
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return InternalServerError();
             }
