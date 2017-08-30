@@ -1,57 +1,23 @@
-﻿<!--<div class="row">
-    <form class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" ng-submit="login(userName, password)">
-        <h2 class="text-center">Sign In</h2>
-        <div class="form-box">
-            <div class="form-group">
-                <input ng-model="userName" type="text" class="form-control" placeholder="Username or Email" required autofocus />
-            </div>
-            <div class="form-group">
-                <input ng-model="password" type="password" class="form-control" placeholder="Password" required />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary btn-block" type="submit" ng-disabled="!(userName && password)" disabled>Sign In</button>
-            </div>
-        </div>
-    </form>
-    <div ui-view></div>
-</div>-->
-
-<div class="main-wrapper">
-    <div class="main">
-        <div class="main-inner">
-            <div class="content">
-                <div class="container">
-                    <!--The Loading Spinner; shown during HTTP requests-->
-                    <span us-spinner="{radius:30, width:8, length: 16}"></span>
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                            <h1 class="h1-uppercase-formatted">LOGIN</h1>
-                            <form method="post">
-                                <div class="form-group">
-                                    <label for="">Username</label>
-                                    <input type="text" class="form-control" placeholder="Email" ng-model="loginData.userName">
-                                </div><!-- /.form-group -->
-                                <div class="form-group">
-                                    <label for="">Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" ng-model="loginData.password">
-                                </div><!-- /.form-group -->
-                                <span ng-show="loginError !== undefined" style="color: red;">{{loginError}}</span>
-                                <div class="form-group-btn">
-                                    <button type="submit" class="btn btn-primary pull-right" ng-click="login()">Sign In</button>
-                                </div><!-- /.form-group-btn -->
-                                <div class="form-group-bottom-link">
-                                    <a ui-sref="forgot-password">I forgot my password <i class="fa fa-long-arrow-right"></i></a>
-                                </div><!-- /.form-group-bottom-link -->
-                                <div class="form-group-bottom-link">
-                                    <a ui-sref="signup">Don't have an account? Signup! <i class="fa fa-long-arrow-up"></i></a>
-                                </div><!-- /.form-group-bottom-link -->
-                            </form>
-                        </div><!-- /.col-* -->
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </div><!-- /.content -->
-        </div><!-- /.main-inner -->
-    </div><!-- /.main -->
-</div><!-- /.main-wrapper -->
-
-<link href="../lib/angular-material/angular-material.min.css" rel="stylesheet">
+﻿<div class="alert alert-info">
+    Username: test<br />
+    Password: test
+</div>
+<div ng-show="error" class="alert alert-danger">{{error}}</div>
+<form name="form" ng-submit="login()" role="form">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <i class="fa fa-key"></i>
+        <input type="text" name="username" id="username" class="form-control" ng-model="username" required />
+        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <i class="fa fa-lock"></i>
+        <input type="password" name="password" id="password" class="form-control" ng-model="password" required />
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+    </div>
+    <div class="form-actions">
+        <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-danger">Login</button>
+        <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>
+</form>

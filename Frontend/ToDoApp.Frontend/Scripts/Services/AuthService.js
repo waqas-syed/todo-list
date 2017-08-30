@@ -97,12 +97,8 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
     authServiceFactory.login = _login;
     authServiceFactory.logOut = _logOut;
     authServiceFactory.fillAuthData = _fillAuthData;
-    authServiceFactory.forgotPassword = _forgotPassword;
-    authServiceFactory.resetPassword = _resetPassword;
     authServiceFactory.authentication = _authentication;
     authServiceFactory.activateAccount = activateAccount;
-
-    authServiceFactory.externalLoginRequest = _externalLoginRequest;
 
     return authServiceFactory;
 }]);

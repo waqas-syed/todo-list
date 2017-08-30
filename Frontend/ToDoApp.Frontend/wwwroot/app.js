@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var rentApp = angular.module('app', ['ui.router']);
+    var rentApp = angular.module('app', ['ui.router', 'LocalStorageModule']);
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locationProvider",
             function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -31,9 +31,8 @@
                 $stateProvider
                     .state("home",
                         {
-                            url: "/home", 
-                            controller: "SearchController",
-                            templateUrl: "/views/landing-page.html"
+                            url: "/",
+                            templateUrl: "/views/login.html"
                         })
                     .state("login",
                         {

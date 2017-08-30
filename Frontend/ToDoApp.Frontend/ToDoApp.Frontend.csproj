@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Content Include="Scripts\app.js" />
+    <Content Include="wwwroot\assets\css\default.css" />
     <Content Include="wwwroot\assets\default.css" />
     <Content Include="wwwroot\index.html" />
     <Content Include="scripts\app.js" />
