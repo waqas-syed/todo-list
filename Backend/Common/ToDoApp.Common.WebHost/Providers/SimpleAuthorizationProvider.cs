@@ -22,8 +22,9 @@ namespace ToDoApp.Common.WebHost.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            var accountRepository = 
-                (IAccountRepository)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IAccountRepository));
+           // var accountRepository = 
+                //(IAccountRepository)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IAccountRepository));
+            var accountRepository = Startup.Kernel.Get<IAccountRepository>();
             var user = accountRepository.GetUserByPassword(context.UserName, context.Password);
             if (user == null)
             {

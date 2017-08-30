@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using ToDoApp.Identity.Persistence.DatabasePipeline;
 
 namespace ToDoApp.Identity.Persistence.Repositories
 {
@@ -12,10 +13,11 @@ namespace ToDoApp.Identity.Persistence.Repositories
         /// Registers a user and returns a tuple with the following two items:
         /// IdentityResult : EmailConfirmationToken
         /// </summary>
+        /// <param name="fullName"></param>
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        IdentityResult RegisterUser(string email, string password);
+        IdentityResult RegisterUser(string fullName, string email, string password);
 
         /// <summary>
         /// Confirm Email
@@ -24,13 +26,13 @@ namespace ToDoApp.Identity.Persistence.Repositories
         /// <param name="token"></param>
         /// <returns></returns>
         bool ConfirmEmail(string userId, string token);
-        
+
         /// <summary>
         /// Get user by email
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        IdentityUser GetUserByEmail(string email);
+        CustomIdentityUser GetUserByEmail(string email);
 
         /// <summary>
         /// Get user by email and Password
@@ -38,7 +40,7 @@ namespace ToDoApp.Identity.Persistence.Repositories
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        IdentityUser GetUserByPassword(string email, string password);
+        CustomIdentityUser GetUserByPassword(string email, string password);
 
         /// <summary>
         /// Get the token which this user must submit to activate their account

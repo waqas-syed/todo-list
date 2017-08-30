@@ -1,5 +1,8 @@
-﻿using Ninject.Modules;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Ninject.Modules;
 using Ninject.Web.Common;
+using ToDoApp.Identity.Persistence.DatabasePipeline;
 using ToDoApp.Identity.Persistence.Repositories;
 
 namespace ToDoApp.Identity.Persistence.Ninject.Modules
@@ -14,6 +17,9 @@ namespace ToDoApp.Identity.Persistence.Ninject.Modules
         /// </summary>
         public override void Load()
         {
+            Bind<AuthContext>().ToSelf().InRequestScope();
+            Bind(typeof(IUserStore<CustomIdentityUser>)).To<CustomUserStore>().InRequestScope();
+            Bind(typeof(UserManager<CustomIdentityUser>)).ToSelf().InRequestScope();
             Bind<IAccountRepository>().To<AccountRepository>().InRequestScope();
         }
     }

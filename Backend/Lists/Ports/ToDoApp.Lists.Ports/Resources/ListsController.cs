@@ -9,7 +9,7 @@ namespace ToDoApp.Lists.Ports.Resources
     /// <summary>
     /// Acts as the RESTful interface for resolving requests related to ToDoList items
     /// </summary>
-    [RoutePrefix("api/v1")]
+    [RoutePrefix("v1")]
     public class ListsController : ApiController
     {
         private IListApplicationService _listsApplicationService;

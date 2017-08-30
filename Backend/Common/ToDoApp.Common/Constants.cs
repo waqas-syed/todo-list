@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace ToDoApp.Common
     /// </summary>
     public class Constants
     {
-        public const string FrontendUrl = "https://localhost";
-        public const string DatabaseConnectionString = "MySql";
+        public static readonly string FrontendUrl = ConfigurationManager.AppSettings.Get("FrontendUrl");
+        public static readonly string DatabaseConnectionString = "MySql";
     }
 }

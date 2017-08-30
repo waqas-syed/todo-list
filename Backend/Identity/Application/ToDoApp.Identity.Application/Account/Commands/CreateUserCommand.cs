@@ -9,11 +9,16 @@ namespace ToDoApp.Identity.Application.Account.Commands
     {
         public CreateUserCommand(string fullName, string email, string password, string confirmPassword)
         {
+            FullName = fullName;
             Email = email;
             Password = password;
             ConfirmPassword = confirmPassword;
         }
-        
+
+        [Required]
+        [Display(Name = "FullName")]
+        public string FullName { get; set; }
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }

@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security.DataProtection;
+using ToDoApp.Identity.Persistence.DatabasePipeline;
 
 namespace ToDoApp.Identity.Persistence.Repositories
 {
@@ -9,27 +12,32 @@ namespace ToDoApp.Identity.Persistence.Repositories
     /// </summary>
     public class AccountRepository : IAccountRepository
     {
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<CustomIdentityUser> _userManager;
 
         /// <summary>
         /// Initialize with a UserManager instance
         /// </summary>
         /// <param name="userManager"></param>
-        public AccountRepository(UserManager<IdentityUser> userManager)
+        public AccountRepository(UserManager<CustomIdentityUser> userManager)
         {
             _userManager = userManager;
+            var provider = new DpapiDataProtectionProvider("ToDoApp");
+            
+            userManager.UserTokenProvider = new DataProtectorTokenProvider<CustomIdentityUser>(
+                provider.Create("EmailConfirmation"));
         }
 
         /// <summary>
         /// Register a new user
         /// </summary>
+        /// <param name="fullName"></param>
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public IdentityResult RegisterUser(string email, string password)
+        public IdentityResult RegisterUser(string fullName, string email, string password)
         {
             // Assign email to the uername property, as we will use email in place of username
-            IdentityUser user = new IdentityUser
+            CustomIdentityUser user = new CustomIdentityUser
             {
                 UserName = email,
                 Email = email
@@ -61,7 +69,7 @@ namespace ToDoApp.Identity.Persistence.Repositories
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public IdentityUser GetUserByEmail(string email)
+        public CustomIdentityUser GetUserByEmail(string email)
         {
             return _userManager.FindByEmail(email);
         }
@@ -72,7 +80,7 @@ namespace ToDoApp.Identity.Persistence.Repositories
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public IdentityUser GetUserByPassword(string email, string password)
+        public CustomIdentityUser GetUserByPassword(string email, string password)
         {
             return _userManager.Find(email, password);
         }

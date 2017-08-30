@@ -5,7 +5,7 @@
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locationProvider",
             function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
-                $locationProvider.html5Mode(true);
+                //$locationProvider.html5Mode(true);
                 $httpProvider.interceptors.push('authInterceptorService');
 
                 $httpProvider.interceptors.push(function () {
@@ -26,25 +26,20 @@
                 $httpProvider.defaults.headers.common["Accept"] = "application/json";
                 $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
                 $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
-                $urlRouterProvider.otherwise("/home");
+                $urlRouterProvider.otherwise("/");
 
                 $stateProvider
-                    .state("home",
-                        {
-                            url: "/",
-                            templateUrl: "/views/login.html"
-                        })
                     .state("login",
                         {
-                            url: "/login",
-                            controller: "scripts/loginController",
+                            url: "/",
+                            controller: "loginController",
                             templateUrl: "/views/login.html",
                             permissions: { hideFromLoggedInUser: true }
                         })
                     .state("signup",
                         {
                             url: "/signup",
-                            controller: "scripts/signupController",
+                            controller: "signupController",
                             templateUrl: "/views/signup.html",
                             permissions: { hideFromLoggedInUser: true}
                         });

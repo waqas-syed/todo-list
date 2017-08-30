@@ -24,23 +24,13 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
 
     };
 
-    var activateAccount = function(emailConfirmation) {
-        return $http.post(globalService.serverUrl + 'account/activate-account', emailConfirmation)
-            .then(function (response) {
-                return response;
-            })
-            .catch(function(error) {
-                return error;
-            });
-    }
-
     var _login = function (loginData) {
 
         var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
 
         var deferred = $q.defer();
 
-        $http.post(globalService.serverUrlWithoutVersion + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (loginResponse) {
+        $http.post(globalService.serverUrlWithoutVersion + 'api/v1/account/login', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (loginResponse) {
 
             _authentication.isAuth = true;
             _authentication.email = loginData.userName;
@@ -98,7 +88,6 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
     authServiceFactory.logOut = _logOut;
     authServiceFactory.fillAuthData = _fillAuthData;
     authServiceFactory.authentication = _authentication;
-    authServiceFactory.activateAccount = activateAccount;
 
     return authServiceFactory;
 }]);

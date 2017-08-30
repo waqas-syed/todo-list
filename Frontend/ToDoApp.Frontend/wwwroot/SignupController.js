@@ -7,12 +7,6 @@ rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'auth
         $scope.savedSuccessfully = false;
         $scope.message = "";
  
-        $scope.registration = {
-            userName: "",
-            password: "",
-            confirmPassword: ""
-        };
- 
         $scope.signUp = function () {
 
             if ($scope.registration.password !== $scope.registration.confirmPassword) {

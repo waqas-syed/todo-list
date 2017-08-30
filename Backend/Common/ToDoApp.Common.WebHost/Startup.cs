@@ -66,12 +66,14 @@ namespace ToDoApp.Common.WebHost
                     PolicyResolver = context => Task.FromResult(corsPolicy)
                 }
             });
-
             
+            app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(configuration);
             ConfigureOAuth(app);
             WebApiConfig.Register(configuration);
-            app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(configuration);
+            
         }
+
+        public static IKernel Kernel { get; private set; }
 
         private StandardKernel CreateKernel()
         {
@@ -82,7 +84,7 @@ namespace ToDoApp.Common.WebHost
             kernel.Load<IdentityPersistenceNinjectModule>();
             kernel.Load<IdentityApplicationNinjectModule>();
             kernel.Load<IdentityPortsNinjectModule>();
-
+            Kernel = kernel;
             return kernel;
         }
 

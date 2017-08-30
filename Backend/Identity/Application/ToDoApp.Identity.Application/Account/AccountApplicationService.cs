@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using ToDoApp.Identity.Application.Account.Commands;
+using ToDoApp.Identity.Application.Account.Representations;
+using ToDoApp.Identity.Persistence.DatabasePipeline;
 using ToDoApp.Identity.Persistence.Repositories;
 
 namespace ToDoApp.Identity.Application.Account
@@ -24,8 +26,14 @@ namespace ToDoApp.Identity.Application.Account
         /// <param name="createUserCommand"></param>
         public string Register(CreateUserCommand createUserCommand)
         {
+            if (!createUserCommand.Password.Equals(createUserCommand.ConfirmPassword))
+            {
+                throw new InvalidOperationException("Password and Confirm password are not equal");
+            }
             // Register the User
-            IdentityResult registrationResult = _accountRepository.RegisterUser(createUserCommand.Email,
+            IdentityResult registrationResult = _accountRepository.RegisterUser(
+                createUserCommand.FullName, 
+                createUserCommand.Email,
                 createUserCommand.Password);
             if (registrationResult == null)
             {
@@ -47,6 +55,21 @@ namespace ToDoApp.Identity.Application.Account
             _accountRepository.ConfirmEmail(retreivedUser.Id, emailVerificationToken);
             
             return retreivedUser.Id;
+        }
+
+        /// <summary>
+        /// Get a uer by email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public UserRepresentation GetUserByEmail(string email)
+        {
+            CustomIdentityUser customIdentityUser = _accountRepository.GetUserByEmail(email);
+            if (customIdentityUser != null)
+            {
+                return new UserRepresentation(customIdentityUser.FullName, customIdentityUser.Email);
+            }
+            throw new NullReferenceException("Could not find the user for the given email");
         }
     }
 }
