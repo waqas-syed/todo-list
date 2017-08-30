@@ -15,7 +15,7 @@ app.controller('todoItemController', ['$scope', '$state', '$stateParams', 'todoL
             }).error(function(error) {
                 console.log(error);
             });
-        }
+    };
     
         $scope.submitNewToDo = function () {
             if ($scope.dt === null || $scope.dt === undefined) {

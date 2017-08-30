@@ -127,7 +127,7 @@ namespace ToDoApp.Lists.Application.Lists
         private ToDoItemRepresentation ConvertToDoItemToRepresentation(ToDoItem toDoItem)
         {
             return new ToDoItemRepresentation(toDoItem.Id, toDoItem.OwnerEmail,
-                toDoItem.Description, toDoItem.DueDate, toDoItem.Priority.ToString());
+                toDoItem.Description, toDoItem.DueDate, toDoItem.Priority.ToString(), toDoItem.IsCompleted);
         }
     }
 }

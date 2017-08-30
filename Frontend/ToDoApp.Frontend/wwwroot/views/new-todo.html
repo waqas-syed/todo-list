@@ -1,4 +1,6 @@
-﻿<h3 class="h1-uppercase-formatted">TODO</h3>
+﻿<td ng-if="!toDo.IsCompleted"><p data-placement="top" data-toggle="tooltip" title="Edit"><a ui-sref="todo-list()" class="btn btn-warning btn-xs" data-title="Back"><span class="glyphicon glyphicon-arrow-left"></span></a></p></td>
+
+<h3 class="h1-uppercase-formatted">TODO</h3>
 <form name="form" ng-submit="submitNewToDo()" role="form">
     <div class="form-group">
         <label for="description">DESCRIPTION</label>

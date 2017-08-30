@@ -20,6 +20,29 @@ app.controller('todoListController', ['$scope', '$state', '$stateParams', 'todoL
             $state.go('add-todo', {email : $stateParams.email});
         };
 
+        $scope.markToDoAsCompleted = function (id) {
+            todoListService.getToDoItem({ id: id }).success(function (response) {
+                var dt = new Date(Date.parse(response.DueDate));
+                var toDo = {
+                    Id: response.Id,
+                    Description: response.Description,
+                    DueDate: new Date(dt.getFullYear(), dt.getMonth(), dt.getDate() + 1),
+                    Priority: response.Priority,
+                    OwnerEmail: response.OwnerEmail,
+                    IsCompleted: true
+                };
+                todoListService.updateToDo(toDo).success(function (updateRespoonse) {
+                    //$state.go('todo-list', { email: $stateParams.email });
+                    $state.go($state.current, { email: $stateParams.email }, { reload: true });
+                }).error(function (updateError) {
+                    console.log(updateError);
+                });
+
+            }).error(function (error) {
+                console.log(error);
+            });
+        };
+
         $scope.deleteToDo = function (id) {
             todoListService.deleteToDo(id).success(function (response) {
                 getAllToDos();
