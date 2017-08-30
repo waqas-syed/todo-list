@@ -8,7 +8,7 @@ app.controller('todoListController', ['$scope', '$state', '$stateParams', 'todoL
         
         var getAllToDos = function() {
             todoListService.getToDosByEmail({ email: $stateParams.email }).success(function (response) {
-                $scope.ToDoList = response;
+                $scope.toDoList = response;
             }).error(function (error) {
                 console.log(error);
             });

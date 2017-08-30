@@ -24,4 +24,23 @@
             </div>
         </div>
     </div>
+    <div ng-repeat="toDo in toDoList">
+        <div class="row">
+            <div class="col-sm-8">
+                <div>
+                    <p class="well" ng-bind="toDo.Description"></p>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <p class="well" ng-bind="toDo.DueDate | date:'MM/dd/yyyy'"></p>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <p class="well" ng-bind="toDo.Priority"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
