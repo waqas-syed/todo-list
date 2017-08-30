@@ -34,5 +34,12 @@ namespace ToDoApp.Lists.Application.Lists
         /// <param name="email"></param>
         /// <returns></returns>
         IList<ToDoItemRepresentation> GetToDoItemsByEmail(string email);
+
+        /// <summary>
+        /// Get a ToDoItem by its ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        ToDoItemRepresentation GetToDoItemById(string id);
     }
 }

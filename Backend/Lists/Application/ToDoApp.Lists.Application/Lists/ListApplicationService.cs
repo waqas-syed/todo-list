@@ -98,11 +98,35 @@ namespace ToDoApp.Lists.Application.Lists
             // giving us the choice as to what to expose
             foreach (var toDoItem in allToDoItems)
             {
-                var toDoRepresentation = new ToDoItemRepresentation(toDoItem.Id, toDoItem.OwnerEmail, 
-                    toDoItem.Description, toDoItem.DueDate, toDoItem.Priority.ToString());
+                var toDoRepresentation = ConvertToDoItemToRepresentation(toDoItem);
                 toDoItemRepresentations.Add(toDoRepresentation);
             }
             return toDoItemRepresentations;
+        }
+
+        /// <summary>
+        /// Get a ToDoItem by its ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ToDoItemRepresentation GetToDoItemById(string id)
+        {
+            var toDoItem = _listsRepository.GetDoItemById(id);
+            if (toDoItem == null)
+            {
+                throw new NullReferenceException("No ToDoItem found with the id: " + id);
+            }
+            return ConvertToDoItemToRepresentation(toDoItem);
+        }
+
+        /// <summary>
+        /// Converts a given ToDoItem to it's representation that can be sent to the outside world
+        /// </summary>
+        /// <returns></returns>
+        private ToDoItemRepresentation ConvertToDoItemToRepresentation(ToDoItem toDoItem)
+        {
+            return new ToDoItemRepresentation(toDoItem.Id, toDoItem.OwnerEmail,
+                toDoItem.Description, toDoItem.DueDate, toDoItem.Priority.ToString());
         }
     }
 }

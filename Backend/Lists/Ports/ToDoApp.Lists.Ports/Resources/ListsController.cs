@@ -128,13 +128,17 @@ namespace ToDoApp.Lists.Ports.Resources
         /// <returns></returns>
         [Route("todoitem")]
         [HttpGet]
-        public IHttpActionResult Get(string email = null)
+        public IHttpActionResult Get(string email = null, string id = null)
         {
             try
             {
                 if (!string.IsNullOrWhiteSpace(email))
                 {
                     return Ok(_listsApplicationService.GetToDoItemsByEmail(email));
+                }
+                else if (!string.IsNullOrWhiteSpace(id))
+                {
+                    return Ok(_listsApplicationService.GetToDoItemById(id));
                 }
             }
             catch (Exception e)

@@ -41,6 +41,16 @@
                     <p class="well" ng-bind="toDo.Priority"></p>
                 </div>
             </div>
+            <div class="col-sm-2">
+                <div>
+                    <a ui-sref="edit-todo({id:toDo.Id})">Edit</a>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <button type="submit" confirmed-click="deleteToDo()" ng-confirm-click="Are you sure you want to delete the ToDo?">Delete</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

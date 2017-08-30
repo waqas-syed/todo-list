@@ -50,9 +50,16 @@
                             templateUrl: "/views/todo-list.html",
                             permissions: { redirectForNonLoggedInUser: true }
                     })
-                    .state("new-todo",
+                    .state("add-todo",
                         {
-                            url: "/new-todo?email",
+                            url: "/add-todo?email",
+                            controller: "todoItemController",
+                            templateUrl: "/views/new-todo.html",
+                            permissions: { redirectForNonLoggedInUser: true }
+                    })
+                    .state("edit-todo",
+                        {
+                            url: "/edit-todo?id",
                             controller: "todoItemController",
                             templateUrl: "/views/new-todo.html",
                             permissions: { redirectForNonLoggedInUser: true }

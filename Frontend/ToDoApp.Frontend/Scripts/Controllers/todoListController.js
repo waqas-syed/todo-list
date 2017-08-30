@@ -17,7 +17,15 @@ app.controller('todoListController', ['$scope', '$state', '$stateParams', 'todoL
         getAllToDos();
 
         $scope.addNewToDo = function() {
-            $state.go('new-todo', {email : $stateParams.email});
+            $state.go('add-todo', {email : $stateParams.email});
         };
+
+        $scope.deleteToDo = function (id) {
+            todoListService.deleteToDo({ id: id }).success(function (response) {
+                $scope.toDoList = response;
+            }).error(function (error) {
+                console.log(error);
+            });
+        }
     }
 ]);

@@ -4,7 +4,17 @@ var app = angular.module('app');
 
 app.controller('todoItemController', ['$scope', '$state', '$stateParams', 'todoListService', function ($scope, $state, $stateParams, todoListService) {
 
-        $scope.priorities = ['High', 'Medium', 'Low'];
+    $scope.priorities = ['High', 'Medium', 'Low'];
+        if ($stateParams.id !== null &&$stateParams.id !== undefined) {
+            todoListService.getToDoItem({ id: $stateParams.id }).success(function (response) {
+                $scope.dt = new Date(Date.parse(response.DueDate));
+                $scope.description = response.Description;
+                $scope.priority = response.Priority;
+                $stateParams.email = response.OwnerEmail;
+            }).error(function(error) {
+                console.log(error);
+            });
+        }
     
         $scope.submitNewToDo = function () {
             var toDo = {
@@ -19,6 +29,5 @@ app.controller('todoItemController', ['$scope', '$state', '$stateParams', 'todoL
                 console.log(response);
             });
         };
-
     }
 ]);
