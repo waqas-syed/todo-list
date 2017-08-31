@@ -26,6 +26,8 @@ Even though EF Code first is being used, the database structure is dumped as a .
 - Log in with the root account. Create one if this is the first time you are logging in.<br/>
 - Click Server --> Data Import. Choose the database to import to. Locate the sql dump in the solution: Backend/Data/MySql/create.sql.<br/>
 - Click Import. The sql dump will be imported, and the database is all set to be used.<br/>
+- The connection string for the application is located inside Backend/Common/ToDoApp.Common.WebHost project, inside web.config file with the name "MySql". The username and password can be changed. The account credentials that the application is using are testuser:Wired987#, so either change the credentials in the web.config or create a user with these credentials in MySql. This can be done in Myql WorkBench by going to Server -> Users & Privileges and creating a new user.
+- Allow 'MaintenanceAdmin' Priviliges to this user. This can be done in Myql WorkBench by going to Server -> Users & Privileges, click on the desired user and then select the Administrative Roles tab.
 
 Backend:<br/>
 - Right click on the Solution and choose 'Restore Nuget Packages'<br/>
