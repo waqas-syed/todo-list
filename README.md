@@ -5,7 +5,6 @@ ToDo List manager allows users to register using email and then login to add ToD
 Domain Driven Design pattern is used to implement the backend which can be seen in the implementation of different layers, the use of Single Responsiblity Principle, the Repository pattern even when we are using EF and CQRS for Domain Model's abstraction from the outside world. Domain Driven Design helps immensely in case of maintaining large and evolutionary projects.
 
 <b>Architecture</b>
-
 Backend is developed in C# using the .NET Framework and utilizes:<br/>
     - ASP.NET Web Api for providing RESTful architecture<br/>
     - Entity Framework as ORM<br/>
