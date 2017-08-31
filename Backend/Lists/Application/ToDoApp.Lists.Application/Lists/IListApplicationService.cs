@@ -33,7 +33,7 @@ namespace ToDoApp.Lists.Application.Lists
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        IList<ToDoItemRepresentation> GetToDoItemsByEmail(string email);
+        IList<ToDoItemRepresentation> GetToDoItemsByEmail(string email, string[] sort = null);
 
         /// <summary>
         /// Get a ToDoItem by its ID

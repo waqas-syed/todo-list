@@ -86,11 +86,12 @@ namespace ToDoApp.Lists.Application.Lists
         /// Get all the ToDoItems by email
         /// </summary>
         /// <param name="email"></param>
+        /// <param name="sort"></param>
         /// <returns></returns>
-        public IList<ToDoItemRepresentation> GetToDoItemsByEmail(string email)
+        public IList<ToDoItemRepresentation> GetToDoItemsByEmail(string email, string[] sort = null)
         {
             // Get all the ToDoItem domain objects
-            var allToDoItems = _listsRepository.GetAllToDoItems(email);
+            var allToDoItems = _listsRepository.GetAllToDoItems(email, sort);
 
             // Initialize a new list that we will send to the client after doing the conversion from the Domain 
             // Objects to the representations

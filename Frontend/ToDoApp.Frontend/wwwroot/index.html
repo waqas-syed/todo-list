@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/ng-table.css">
+    
     <link rel="stylesheet" href="assets/css/Site.css"/>
 </head>
 <body>
@@ -25,6 +27,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar" ng-if="isAuthenticated()">
                 <ul class="nav navbar-nav navbar-right">
+                    <li ng-click="logOut()"><a href=""><span class="glyphicon glyphicon-user"></span> {{authentication.fullName}}</a></li>
                     <li ng-click="logOut()"><a href=""><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                 </ul>
             </div>
@@ -53,6 +56,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <script src="lib/angular-ui-router.js"></script>
 <script src="lib/angular-local-storage.js"></script>
+    <script src="lib/ng-table.js"></script>
 <script src="app.js"></script>
 <script src="AuthInterceptorService.js"></script>
 <script src="AuthService.js"></script>

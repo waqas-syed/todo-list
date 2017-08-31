@@ -39,7 +39,8 @@ namespace ToDoApp.Lists.Persistence.Repositories
         /// Get all of the ToDoItems associated with the given email
         /// </summary>
         /// <param name="email"></param>
+        /// <param name="sort"></param>
         /// <returns></returns>
-        IList<ToDoItem> GetAllToDoItems(string email);
+        IList<ToDoItem> GetAllToDoItems(string email, string[] sort = null);
     }
 }

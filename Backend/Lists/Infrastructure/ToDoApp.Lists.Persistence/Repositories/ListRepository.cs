@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Dynamic;
 using ToDoApp.Lists.Domain.Model.ToDoAggregate;
 using ToDoApp.Lists.Persistence.DatabasePipeline;
 
@@ -68,10 +69,19 @@ namespace ToDoApp.Lists.Persistence.Repositories
         /// Gets all the ToDoItems using the email
         /// </summary>
         /// <param name="email"></param>
+        /// <param name="sort"></param>
         /// <returns></returns>
-        public IList<ToDoItem> GetAllToDoItems(string email)
+        public IList<ToDoItem> GetAllToDoItems(string email, string[] sort = null)
         {
-            return _listsContext.ToDoItems.Where(x => x.OwnerEmail == email).ToList();
+            IQueryable<ToDoItem> queryable = _listsContext.ToDoItems;
+
+            // Add the sorting
+            if (sort != null && sort.Length > 0)
+                queryable = queryable.ApplySorting(sort);
+            else
+                queryable = queryable.OrderBy(c => c.Id);
+
+            return queryable.Where(x => x.OwnerEmail == email).ToList();
         }
         
         /// <summary>
@@ -88,6 +98,40 @@ namespace ToDoApp.Lists.Persistence.Repositories
         public void Commit()
         {
             _listsContext.SaveChanges();
+        }
+    }
+
+    public static class QuerySortingExtensions
+    {
+        public static IQueryable<T> ApplySorting<T>(this IQueryable<T> query, IEnumerable<string> sort) where T : class
+        {
+            if (sort != null)
+            {
+                List<string> sortFields = new List<string>();
+
+                foreach (string sortField in sort)
+                {
+                    string direction = null;
+                    string fieldName = null;
+
+                    if (sortField.StartsWith("+"))
+                    {
+                        sortFields.Add(string.Format("{0} ASC", sortField.TrimStart('+')));
+                    }
+                    else if (sortField.StartsWith("-"))
+                    {
+                        sortFields.Add(string.Format("{0} DESC", sortField.TrimStart('-')));
+                    }
+                    else
+                    {
+                        sortFields.Add(sortField);
+                    }
+                }
+
+                return query.OrderBy(string.Join(",", sortFields));
+            }
+
+            return query;
         }
     }
 }

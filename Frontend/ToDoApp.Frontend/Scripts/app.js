@@ -1,7 +1,8 @@
 ﻿(function () {
     'use strict';
 
-    var rentApp = angular.module('app', ['ui.router', 'LocalStorageModule', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+    var rentApp = angular.module('app', ['ui.router', 'LocalStorageModule', 'ngAnimate', 'ngSanitize', 'ui.bootstrap',
+    'ngTable']);
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locationProvider",
             function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -45,14 +46,14 @@
                     })
                     .state("todo-list",
                         {
-                            url: "/todo-list?email",
+                            url: "/todo-list",
                             controller: "todoListController",
                             templateUrl: "/views/todo-list.html",
                             permissions: { redirectForNonLoggedInUser: true }
                     })
                     .state("add-todo",
                         {
-                            url: "/add-todo?email",
+                            url: "/add-todo",
                             controller: "todoItemController",
                             templateUrl: "/views/new-todo.html",
                             permissions: { redirectForNonLoggedInUser: true }
