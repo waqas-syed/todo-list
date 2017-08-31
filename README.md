@@ -30,6 +30,7 @@ Even though EF Code first is being used, the database structure is dumped as a .
 Backend:<br/>
 - Right click on the Solution and choose 'Restore Nuget Packages'<br/>
 - Once the packages are restored, right click the project Backend/Common/ToDoApp.Common.WebHost -> Debug -> Start New Instance.<br/>
+
 Frontend:
  - Click Views --> Other Windows --> Task Runner Explorer.
  - Once the task runner explorer window appears, you should be able to see GruntFile.js -> Alias Tasks -> Default. Right click on Default and select Run.
