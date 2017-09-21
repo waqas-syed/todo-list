@@ -46,10 +46,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BCBAE0F4-859D-4625-99FF-A20E05EDE27D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MySql", "MySql", "{59546D2B-EC4C-4090-A1E8-6366BDA4D057}"
+	ProjectSection(SolutionItems) = preProject
+		Backend\Data\MySql\create.sql = Backend\Data\MySql\create.sql
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{B9C19324-797C-4229-BDD8-41F870B7D0F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Frontend", "Frontend\ToDoApp.Frontend\ToDoApp.Frontend.csproj", "{44835D00-EB33-4D91-A052-73EC5630F410}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Frontend", "Frontend\ToDoApp.Frontend\ToDoApp.Frontend.csproj", "{44835D00-EB33-4D91-A052-73EC5630F410}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
