@@ -15,11 +15,20 @@ namespace ToDoApp.Identity.Ports.Resources
     {
         private IAccountApplicationService _accountApplicationService;
         
+        /// <summary>
+        /// Initialize
+        /// </summary>
+        /// <param name="accountApplicationService"></param>
         public AccountController(IAccountApplicationService accountApplicationService)
         {
             _accountApplicationService = accountApplicationService;
         }
 
+        /// <summary>
+        /// Registers a new user
+        /// </summary>
+        /// <param name="userObject"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [Route("Register")]
         public IHttpActionResult Register([FromBody] Object userObject)
@@ -59,7 +68,11 @@ namespace ToDoApp.Identity.Ports.Resources
             }
         }
 
-        // POST api/Account/Register
+        /// <summary>
+        /// Gets a user by Id
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [Route("get-user")]
         [HttpGet]

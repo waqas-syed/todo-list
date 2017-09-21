@@ -40,6 +40,10 @@ namespace ToDoApp.Lists.Persistence.Repositories
             }
         }
 
+        /// <summary>
+        /// Update the ToDoItem
+        /// </summary>
+        /// <param name="toDoItem"></param>
         public void Update(ToDoItem toDoItem)
         {
             _listsContext.ToDoItems.Attach(toDoItem);
@@ -101,6 +105,9 @@ namespace ToDoApp.Lists.Persistence.Repositories
         }
     }
 
+    /// <summary>
+    /// For sorting the queries
+    /// </summary>
     public static class QuerySortingExtensions
     {
         public static IQueryable<T> ApplySorting<T>(this IQueryable<T> query, IEnumerable<string> sort) where T : class

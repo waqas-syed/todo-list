@@ -21,6 +21,7 @@ using ToDoApp.Lists.Application.Ninject.Modules;
 using ToDoApp.Lists.Persistence.Ninject.Modules;
 using ToDoApp.Lists.Ports.Ninject.Module;
 
+// Specifies this class as the one that fires up the OWIN pipeline
 [assembly: OwinStartup(typeof(ToDoApp.Common.WebHost.Startup))]
 namespace ToDoApp.Common.WebHost
 {

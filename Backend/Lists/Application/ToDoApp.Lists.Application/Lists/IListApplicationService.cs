@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using ToDoApp.Lists.Application.Lists.Commands;
 using ToDoApp.Lists.Application.Lists.Representations;
-using ToDoApp.Lists.Domain.Model.ToDoAggregate;
 
 namespace ToDoApp.Lists.Application.Lists
 {

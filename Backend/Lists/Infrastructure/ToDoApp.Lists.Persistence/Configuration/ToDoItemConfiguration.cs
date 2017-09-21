@@ -9,6 +9,9 @@ namespace ToDoApp.Lists.Persistence.Configuration
     /// </summary>
     public class ToDoItemConfiguration : EntityTypeConfiguration<ToDoItem>
     {
+        /// <summary>
+        /// Performs the configuration for ToDoItem database table during initialization
+        /// </summary>
         public ToDoItemConfiguration()
         {
             ToTable("todoitem");

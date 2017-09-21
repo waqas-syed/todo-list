@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace ToDoApp.Identity.Persistence.DatabasePipeline
 {
     /// <summary>
-    /// Customer UserStore, that will be used by the UserManager
+    /// Customer UserStore, that will be used by the UserManager. Custom Implementation
     /// </summary>
     public class CustomUserStore : UserStore<CustomIdentityUser>
     {

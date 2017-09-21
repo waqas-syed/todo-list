@@ -14,6 +14,9 @@ namespace ToDoApp.Identity.Persistence.DatabasePipeline
     /// </summary>
     public class AuthContext : IdentityDbContext<CustomIdentityUser>
     {
+        /// <summary>
+        /// Auth Context
+        /// </summary>
         public AuthContext() : base(Constants.DatabaseConnectionString)
         {
             Database.SetInitializer(new MySqlDatabaseInitializer());

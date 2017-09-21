@@ -20,6 +20,10 @@ namespace ToDoApp.Lists.Persistence.DatabasePipeline
 
         public DbSet<ToDoItem> ToDoItems { get; set; }
 
+        /// <summary>
+        /// Add configurations when the model is being created
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

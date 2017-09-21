@@ -9,6 +9,9 @@ namespace ToDoApp.Lists.Ports.Ninject.Module
     /// </summary>
     public class ListsPortsNinjectModule : NinjectModule
     {
+        /// <summary>
+        /// Load the dependencies
+        /// </summary>
         public override void Load()
         {
             Bind<ListsController>().ToSelf().InTransientScope();

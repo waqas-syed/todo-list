@@ -16,6 +16,9 @@ namespace ToDoApp.Lists.Persistence.Ninject.Modules
     /// </summary>
     public class ListsPersistenceNinjectModule : NinjectModule
     {
+        /// <summary>
+        /// Load the Ninject defined dependencies
+        /// </summary>
         public override void Load()
         {
             Bind<ListsContext>().ToSelf().InRequestScope();

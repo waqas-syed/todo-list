@@ -12,6 +12,9 @@ namespace ToDoApp.Identity.Persistence.DatabasePipeline
     /// </summary>
     public class CustomIdentityUser : IdentityUser
     {
+        /// <summary>
+        /// Full Name
+        /// </summary>
         public string FullName { get; set; }
     }
 }

@@ -64,7 +64,6 @@
     <Compile Include="Account\Commands\CreateUserCommand.cs" />
     <Compile Include="Account\IAccountApplicationService.cs" />
     <Compile Include="Account\Representations\UserRepresentation.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Ninject\Modules\IdentityApplicationNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

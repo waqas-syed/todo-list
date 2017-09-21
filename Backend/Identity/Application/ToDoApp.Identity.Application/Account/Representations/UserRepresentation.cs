@@ -13,8 +13,15 @@ namespace ToDoApp.Identity.Application.Account.Representations
             Email = email;
         }
 
+        /// <summary>
+        /// Name of the user
+        /// </summary>
         [DataMember]
         public string FullName { get; set; }
+
+        /// <summary>
+        /// Email of the user
+        /// </summary>
         [DataMember]
         public string Email { get; set; }
     }

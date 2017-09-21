@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.DataProtection;
+using System;
 using ToDoApp.Identity.Persistence.DatabasePipeline;
 
 namespace ToDoApp.Identity.Persistence.Repositories
